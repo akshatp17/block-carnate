@@ -354,6 +354,8 @@ polygon = PackedVector2Array(280, 562, 286.685, 562, 293.681, 562, 301.109, 562,
 position = Vector2(679.5, 560.5)
 shape = SubResource("RectangleShape2D_vhpm2")
 
+[node name="Timer" type="Timer" parent="Water"]
+
 [node name="Main" type="TileMap" parent="."]
 position = Vector2(-8, -7)
 tile_set = ExtResource("3_a8sxe")
@@ -378,3 +380,4 @@ layer_1/tile_data = PackedInt32Array(262148, 196608, 2, 327684, 196608, 2, 45875
 [connection signal="jump_trampoline" from="Player" to="JumpPad" method="_on_player_jump_trampoline"]
 [connection signal="body_entered" from="Water" to="Player" method="_on_water_body_entered"]
 [connection signal="body_exited" from="Water" to="Player" method="_on_water_body_exited"]
+[connection signal="timeout" from="Water/Timer" to="Player" method="_on_timer_timeout"]

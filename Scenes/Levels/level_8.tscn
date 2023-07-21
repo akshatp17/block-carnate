@@ -389,6 +389,8 @@ polygon = PackedVector2Array(280, 562, 286.685, 562, 293.681, 562, 301.109, 562,
 position = Vector2(923.502, 425.498)
 shape = SubResource("RectangleShape2D_i7as3")
 
+[node name="Timer" type="Timer" parent="Water"]
+
 [node name="Main" type="TileMap" parent="."]
 position = Vector2(-8, -7)
 tile_set = ExtResource("3_prp2h")
@@ -415,3 +417,4 @@ layer_1/tile_data = PackedInt32Array(131073, 196608, 2, 196609, 196608, 2, 26214
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="body_entered" from="Water" to="Player" method="_on_water_body_entered"]
 [connection signal="body_exited" from="Water" to="Player" method="_on_water_body_exited"]
+[connection signal="timeout" from="Water/Timer" to="Player" method="_on_timer_timeout"]

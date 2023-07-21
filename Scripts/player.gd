@@ -4,19 +4,25 @@ signal death
 signal jump_trampoline
 
 @onready var animsprite_2d = $Sprite2D
+@onready var timer
 
 const SPEED = 200.0
 
 var JUMP_VELOCITY = -425.0
+var wait_time = 3.0
 var initial_pos
 var death_pos
 
 var jump_nerf = false
+var movement = true
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	initial_pos = get_position()
+	if ( get_tree().get_current_scene().get_name() ).to_int() in [3,4,5,6,7,8,9,10]:
+		timer = $"../Water/Timer"
+		timer.set_wait_time(wait_time)
 
 func _physics_process(delta):
 	
@@ -25,46 +31,48 @@ func _physics_process(delta):
 	else:
 		JUMP_VELOCITY = -425.0
 	
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	var direction = Input.get_axis("move_left", "move_right")
-	
-	#Jumping
-	if Input.is_action_just_pressed("move_jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	
-	#Movement
-	if direction:
-		velocity.x = direction * SPEED
+	if movement:
 		
-		#Left Side Animation
-		if Input.is_action_pressed("move_left"):
-			#Pushing the Wall
-			if is_on_wall() and is_on_floor():
-				animsprite_2d.set_flip_h(true)
-				animsprite_2d.play("push")
-			#Not Pushing
-			else:
-				animsprite_2d.set_flip_h(true)
-				animsprite_2d.play("run")
-		#Right Side Animation
-		elif Input.is_action_pressed("move_right"):
-			#Pushing the Wall
-			if is_on_wall() and is_on_floor():
-				animsprite_2d.set_flip_h(false)
-				animsprite_2d.play("push")
-			#Not Pushing
-			else:
-				animsprite_2d.set_flip_h(false)
-				animsprite_2d.play("run")
+		if not is_on_floor():
+			velocity.y += gravity * delta
 	
-	#Idle position
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		animsprite_2d.play("idle")
-
-	move_and_slide()
+		var direction = Input.get_axis("move_left", "move_right")
+		
+		#Jumping
+		if Input.is_action_just_pressed("move_jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+		
+		#Movement
+		if direction:
+			velocity.x = direction * SPEED
+		
+			#Left Side Animation
+			if Input.is_action_pressed("move_left"):
+				#Pushing the Wall
+				if is_on_wall() and is_on_floor():
+					animsprite_2d.set_flip_h(true)
+					animsprite_2d.play("push")
+				#Not Pushing
+				else:
+					animsprite_2d.set_flip_h(true)
+					animsprite_2d.play("run")
+			#Right Side Animation
+			elif Input.is_action_pressed("move_right"):
+				#Pushing the Wall
+				if is_on_wall() and is_on_floor():
+					animsprite_2d.set_flip_h(false)
+					animsprite_2d.play("push")
+				#Not Pushing
+				else:
+					animsprite_2d.set_flip_h(false)
+					animsprite_2d.play("run")
+		
+		#Idle position
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			animsprite_2d.play("idle")
+	
+		move_and_slide()
 
 #Death
 func _on_area_2d_body_entered(body):
@@ -92,8 +100,19 @@ func _on_jump_pad_body_entered(body):
 func _on_water_body_entered(body):
 	if body.name == "Player":
 		jump_nerf = true
+		timer.start()
 
 
 func _on_water_body_exited(body):
 	if body.name == "Player":
 		jump_nerf = false
+		timer.stop()
+		timer.set_wait_time(wait_time)
+
+#Player death from staying in water for 3 seconds
+func _on_timer_timeout():
+	
+	if jump_nerf:
+		movement = false
+		timer.stop()
+		animsprite_2d.play("dead")
