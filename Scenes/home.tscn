@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgoxn8qjlskso"]
+[gd_scene load_steps=6 format=3 uid="uid://bgoxn8qjlskso"]
 
 [ext_resource type="Script" path="res://Scripts/HomeScreen.gd" id="1_uiuqu"]
+[ext_resource type="FontFile" uid="uid://8vtji7cxsm8h" path="res://Assets/Font/upheavtt.ttf" id="2_8j7ec"]
 [ext_resource type="Texture2D" uid="uid://sexa5art62o1" path="res://Assets/UI/Block.png" id="2_qqxlx"]
 [ext_resource type="Texture2D" uid="uid://br2lfwcp5kbal" path="res://Assets/UI/Carnate.png" id="3_ymmpj"]
 [ext_resource type="SpriteFrames" uid="uid://dj21mhr345s68" path="res://Assets/Character/Brick/brick.tres" id="4_if2qv"]
@@ -27,6 +28,7 @@ offset_right = 88.5
 offset_bottom = 143.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_8j7ec")
 theme_override_font_sizes/font_size = 72
 text = "Start"
 
