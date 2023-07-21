@@ -15,11 +15,16 @@ var death_pos
 
 var jump_nerf = false
 var movement = true
+var complete_death = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	initial_pos = get_position()
+	jump_nerf = false
+	movement = true
+	complete_death = false
+	
 	if ( get_tree().get_current_scene().get_name() ).to_int() in [3,4,5,6,7,8,9,10]:
 		timer = $"../Water/Timer"
 		timer.set_wait_time(wait_time)
@@ -31,6 +36,12 @@ func _physics_process(delta):
 	else:
 		JUMP_VELOCITY = -425.0
 	
+	#If player dies completely, then scene change
+	if complete_death:
+		if not animsprite_2d.is_playing():
+			get_tree().change_scene_to_file("res://Scenes/home.tscn")
+	
+	#Complete loop of movement, it stops when the player dies completly
 	if movement:
 		
 		if not is_on_floor():
@@ -116,3 +127,4 @@ func _on_timer_timeout():
 		movement = false
 		timer.stop()
 		animsprite_2d.play("dead")
+		complete_death = true
