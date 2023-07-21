@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpx2faymqmsm7"]
+
+[ext_resource type="Script" path="res://Scripts/jump_pad.gd" id="1_hota6"]
+[ext_resource type="Texture2D" uid="uid://dimeibq7a7djd" path="res://Assets/Elements/Jump (28x28).png" id="1_t2r3o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1awxk"]
+size = Vector2(25, 8)
+
+[sub_resource type="Animation" id="Animation_7wxuu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6n8if"]
+resource_name = "jump"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2),
+"update": 1,
+"values": [0, 6, 5, 4, 3, 2, 1, 2, 3, 4, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bovb1"]
+_data = {
+"RESET": SubResource("Animation_7wxuu"),
+"jump": SubResource("Animation_6n8if")
+}
+
+[node name="JumpPad" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_hota6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_t2r3o")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 10)
+shape = SubResource("RectangleShape2D_1awxk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bovb1")
+}

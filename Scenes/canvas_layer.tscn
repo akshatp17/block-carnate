@@ -1,0 +1,116 @@
+[gd_scene load_steps=6 format=3 uid="uid://do2nelxogl8ma"]
+
+[ext_resource type="Texture2D" uid="uid://d2kta0tcyuoeh" path="res://Assets/Elements/Levels/1.png" id="2_m27jv"]
+[ext_resource type="Texture2D" uid="uid://lam4gh6ofj5l" path="res://Assets/Elements/Buttons1.png" id="3_b1v8m"]
+[ext_resource type="Texture2D" uid="uid://j6bvu34ott3p" path="res://Assets/Elements/Buttons2.png" id="4_hlwqn"]
+[ext_resource type="SpriteFrames" uid="uid://dj21mhr345s68" path="res://Assets/Character/Brick/brick.tres" id="5_tpndr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_btd54"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_b1v8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hlwqn")
+}],
+"loop": true,
+"name": &"press",
+"speed": 5.0
+}]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="LevelNumber" type="Sprite2D" parent="."]
+position = Vector2(27, 23)
+scale = Vector2(2, 2)
+texture = ExtResource("2_m27jv")
+
+[node name="Info" type="Panel" parent="."]
+offset_left = 935.0
+offset_top = 6.0
+offset_right = 1145.0
+offset_bottom = 46.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="AnimatedSprite2D" parent="Info"]
+position = Vector2(23, 13)
+sprite_frames = SubResource("SpriteFrames_btd54")
+animation = &"press"
+
+[node name="colon" type="Label" parent="Info"]
+offset_left = 41.0
+offset_top = 7.0
+offset_right = 46.0
+offset_bottom = 33.0
+text = ":"
+metadata/_edit_use_anchors_ = true
+
+[node name="colon2" type="Label" parent="Info"]
+offset_left = 157.0
+offset_top = 6.0
+offset_right = 162.0
+offset_bottom = 32.0
+text = ":"
+metadata/_edit_use_anchors_ = true
+
+[node name="Blocks" type="AnimatedSprite2D" parent="Info"]
+position = Vector2(139, 18)
+sprite_frames = ExtResource("5_tpndr")
+animation = &"idle"
+
+[node name="button_done" type="Label" parent="Info"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 8.0
+offset_right = 58.0
+offset_bottom = 34.0
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="button_total" type="Label" parent="Info"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 8.0
+offset_right = 74.0
+offset_bottom = 34.0
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="Slash" type="Label" parent="Info"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 34.0
+text = "/"
+metadata/_edit_use_anchors_ = true
+
+[node name="Slash2" type="Label" parent="Info"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 8.0
+offset_right = 179.0
+offset_bottom = 34.0
+text = "/"
+metadata/_edit_use_anchors_ = true
+
+[node name="block_left" type="Label" parent="Info"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 8.0
+offset_right = 173.0
+offset_bottom = 34.0
+text = "0
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="blocks_total" type="Label" parent="Info"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 8.0
+offset_right = 188.0
+offset_bottom = 34.0
+text = "0
+"
+metadata/_edit_use_anchors_ = true
