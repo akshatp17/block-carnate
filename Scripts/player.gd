@@ -16,6 +16,7 @@ var death_pos
 var jump_nerf = false
 var movement = true
 var complete_death = false
+var brick_stop = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -85,21 +86,28 @@ func _physics_process(delta):
 	
 		move_and_slide()
 
-#Death
+#Death only Level 1
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
-		on_death()
-	
+		if not brick_stop:
+			on_death()
+		else:
+			death_pos = get_position()
+			emit_signal("death",death_pos)
 #Function to respawn and giving the position
 func on_death():
 	death_pos = get_position()
 	set_position(initial_pos)
 	emit_signal("death",death_pos)
 
-
+#Death level 2
 func _on_spike_body_entered(body):
 	if body.name == "Player":
-		on_death()
+		if not brick_stop:
+			on_death()
+		else:
+			death_pos = get_position()
+			emit_signal("death",death_pos)
 
 
 func _on_jump_pad_body_entered(body):
@@ -126,5 +134,105 @@ func _on_timer_timeout():
 	if jump_nerf:
 		movement = false
 		timer.stop()
+		animsprite_2d.play("dead")
+		complete_death = true
+
+#All level signals for player death if block ends
+func _on_level_1_complete_death(brick_death):
+	if brick_death == 0:
+		brick_stop = true
+	
+	if brick_death == -1:
+		movement = false
+		animsprite_2d.play("dead")
+		complete_death = true
+
+
+func _on_level_2_complete_death(brick_death):
+	if brick_death == 0:
+		brick_stop = true
+	
+	if brick_death == -1:
+		movement = false
+		animsprite_2d.play("dead")
+		complete_death = true
+
+
+func _on_level_3_complete_death(brick_death):
+	if brick_death == 0:
+		brick_stop = true
+	
+	if brick_death == -1:
+		movement = false
+		animsprite_2d.play("dead")
+		complete_death = true
+
+
+func _on_level_4_complete_death(brick_death):
+	if brick_death == 0:
+		brick_stop = true
+	
+	if brick_death == -1:
+		movement = false
+		animsprite_2d.play("dead")
+		complete_death = true
+
+
+func _on_level_5_complete_death(brick_death):
+	if brick_death == 0:
+		brick_stop = true
+	
+	if brick_death == -1:
+		movement = false
+		animsprite_2d.play("dead")
+		complete_death = true
+
+
+func _on_level_6_complete_death(brick_death):
+	if brick_death == 0:
+		brick_stop = true
+	
+	if brick_death == -1:
+		movement = false
+		animsprite_2d.play("dead")
+		complete_death = true
+
+
+func _on_level_7_complete_death(brick_death):
+	if brick_death == 0:
+		brick_stop = true
+	
+	if brick_death == -1:
+		movement = false
+		animsprite_2d.play("dead")
+		complete_death = true
+
+
+func _on_level_8_complete_death(brick_death):
+	if brick_death == 0:
+		brick_stop = true
+	
+	if brick_death == -1:
+		movement = false
+		animsprite_2d.play("dead")
+		complete_death = true
+
+
+func _on_level_9_complete_death(brick_death):
+	if brick_death == 0:
+		brick_stop = true
+	
+	if brick_death == -1:
+		movement = false
+		animsprite_2d.play("dead")
+		complete_death = true
+
+
+func _on_level_10_complete_death(brick_death):
+	if brick_death == 0:
+		brick_stop = true
+	
+	if brick_death == -1:
+		movement = false
 		animsprite_2d.play("dead")
 		complete_death = true

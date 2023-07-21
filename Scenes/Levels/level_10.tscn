@@ -130,30 +130,11 @@ offset_bottom = 34.0
 text = "/"
 metadata/_edit_use_anchors_ = true
 
-[node name="Slash2" type="Label" parent="CanvasLayer/Info"]
-layout_mode = 0
-offset_left = 172.0
-offset_top = 8.0
-offset_right = 179.0
-offset_bottom = 34.0
-text = "/"
-metadata/_edit_use_anchors_ = true
-
 [node name="block_left" type="Label" parent="CanvasLayer/Info"]
 layout_mode = 0
 offset_left = 163.0
 offset_top = 8.0
 offset_right = 173.0
-offset_bottom = 34.0
-text = "0
-"
-metadata/_edit_use_anchors_ = true
-
-[node name="blocks_total" type="Label" parent="CanvasLayer/Info"]
-layout_mode = 0
-offset_left = 178.0
-offset_top = 8.0
-offset_right = 188.0
 offset_bottom = 34.0
 text = "0
 "
@@ -364,6 +345,7 @@ position = Vector2(595.5, 339)
 shape = SubResource("RectangleShape2D_igja1")
 debug_color = Color(0.701961, 0, 0, 0.419608)
 
+[connection signal="complete_death" from="." to="Player" method="_on_level_10_complete_death"]
 [connection signal="level1_buttonrelease" from="." to="LevelEndDoor" method="_on_level_10_level_1_buttonrelease"]
 [connection signal="level1_complete" from="." to="LevelEndDoor" method="_on_level_10_level_1_complete"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]

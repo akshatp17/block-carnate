@@ -3,6 +3,7 @@ extends Node2D
 signal level1_complete
 signal level1_buttonrelease
 signal gravity_change
+signal complete_death
 
 @onready var brick = preload("res://Scenes/brick.tscn")
 @onready var button = preload("res://Scenes/buttons.tscn")
@@ -14,7 +15,7 @@ var brick_total = 0
 var brick_left = 0
 
 var button_list = [1,1,1,1,2,1,3,3,3,3]
-var brick_list = [1,2,3,4,5,6,7,8,9,10]
+var brick_list = [10,10,10,10,10,10,10,10,10,10]
 
 var release_lock = false
 
@@ -24,23 +25,31 @@ func _ready():
 	for i in range(1,11):
 		if cur_level == i:
 			button_total = button_list[i-1]
+			brick_total = brick_list[i-1]
+			brick_left = brick_list[i-1]
 			break
 			
 	$CanvasLayer/Info/button_total.set_text(str(button_total))
+	$CanvasLayer/Info/block_left.set_text(str(brick_left) + "/" + str(brick_total))
 
 #When Player Dies, the brick will be spawned at the position
 func _on_player_death(player_death_pos):
+		brick_left -= 1
+		emit_signal("complete_death",brick_left)
+		
+		if brick_left > -1:
+			#Instancing the brick
+			var brick_instance = brick.instantiate()
+			
+			#Setting the position of the brick
+			brick_instance.position.x = player_death_pos.x
+			brick_instance.position.y = player_death_pos.y
+			
+			#Blitting Brick in the level
+			call_deferred("add_child",brick_instance)
+			
+			$CanvasLayer/Info/block_left.set_text(str(brick_left)  + "/" + str(brick_total))
 	
-	#Instancing the brick
-	var brick_instance = brick.instantiate()
-	
-	#Setting the position of the brick
-	brick_instance.position.x = player_death_pos.x
-	brick_instance.position.y = player_death_pos.y
-	
-	#Blitting Brick in the level
-	call_deferred("add_child",brick_instance)
-
 
 func _on_buttons_button_pressedd():
 	button_counter += 1
