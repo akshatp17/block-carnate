@@ -41,6 +41,7 @@ func _physics_process(delta):
 	if complete_death:
 		if not animsprite_2d.is_playing():
 			get_tree().change_scene_to_file("res://Scenes/home.tscn")
+			queue_free()
 	
 	#Complete loop of movement, it stops when the player dies completly
 	if movement:

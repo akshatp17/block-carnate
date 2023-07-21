@@ -29,7 +29,7 @@ func _ready():
 			brick_left = brick_list[i-1]
 			break
 			
-	$CanvasLayer/Info/button_total.set_text(str(button_total))
+	$CanvasLayer/Info/button_done.set_text(str(button_counter) + "/" + str(button_total))
 	$CanvasLayer/Info/block_left.set_text(str(brick_left) + "/" + str(brick_total))
 
 #When Player Dies, the brick will be spawned at the position
@@ -55,7 +55,7 @@ func _on_buttons_button_pressedd():
 	button_counter += 1
 	if button_counter > button_total:
 		button_counter = button_total
-	$CanvasLayer/Info/button_done.set_text(str(button_counter))
+	$CanvasLayer/Info/button_done.set_text(str(button_counter) + "/" + str(button_total))
 	if button_counter == button_total:
 		release_lock = true
 		emit_signal("level1_complete")
@@ -64,7 +64,7 @@ func _on_buttons_button_released():
 	button_counter -= 1
 	if button_counter < 0:
 		button_counter = 0
-	$CanvasLayer/Info/button_done.set_text(str(button_counter))
+	$CanvasLayer/Info/button_done.set_text(str(button_counter) + "/" + str(button_total))
 	if release_lock:
 		emit_signal("level1_buttonrelease")
 		release_lock = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://t2262o1c4jn5"]
+[gd_scene load_steps=22 format=3 uid="uid://t2262o1c4jn5"]
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_p4g6y"]
 [ext_resource type="Texture2D" uid="uid://haomow0psdnx" path="res://Assets/Elements/Levels/9.png" id="2_xjkk1"]
@@ -6,13 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://cn5gcm8rj1h4c" path="res://Scenes/level_end_door.tscn" id="4_n2j3v"]
 [ext_resource type="Texture2D" uid="uid://c12k4hrjvliql" path="res://Assets/TileSets/Decorations (32x32).png" id="4_rwbgh"]
 [ext_resource type="PackedScene" uid="uid://c474bd8f6q8pe" path="res://Scenes/player.tscn" id="5_78c3v"]
+[ext_resource type="FontFile" uid="uid://bq61jktw1igc8" path="res://Assets/Font/LabelFont.tres" id="5_d6vtw"]
 [ext_resource type="Texture2D" uid="uid://lam4gh6ofj5l" path="res://Assets/Elements/Buttons1.png" id="8_k172w"]
 [ext_resource type="Texture2D" uid="uid://j6bvu34ott3p" path="res://Assets/Elements/Buttons2.png" id="9_q3ukw"]
 [ext_resource type="SpriteFrames" uid="uid://dj21mhr345s68" path="res://Assets/Character/Brick/brick.tres" id="10_sphwq"]
 [ext_resource type="PackedScene" uid="uid://5cel68grnfv2" path="res://Scenes/buttons.tscn" id="11_dwmot"]
 [ext_resource type="Texture2D" uid="uid://brn0illx54aqo" path="res://Assets/Elements/spike.png" id="11_mpj7n"]
+[ext_resource type="Shader" path="res://Effects/wave.gdshader" id="13_lqswl"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_xoong"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_8dbbm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -57,6 +59,25 @@ sources/0 = SubResource("TileSetAtlasSource_825ys")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tioi"]
 size = Vector2(92, 9)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a7pod"]
+shader = ExtResource("13_lqswl")
+shader_parameter/speed = 0.2
+shader_parameter/frequency_y = 5.0
+shader_parameter/frequency_x = 0.0
+shader_parameter/amplitude_y = 0.005
+shader_parameter/amplitude_x = 0.0
+shader_parameter/inclination = 0.0
+
+[sub_resource type="Gradient" id="Gradient_p26t2"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.0156863, 0.509804, 0.909804, 0.596078)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ts8pj"]
+gradient = SubResource("Gradient_p26t2")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pup62"]
+size = Vector2(322.995, 19)
+
 [node name="Level_9" type="Node2D"]
 script = ExtResource("1_p4g6y")
 metadata/_edit_vertical_guides_ = []
@@ -77,65 +98,73 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="AnimatedSprite2D" parent="CanvasLayer/Info"]
 position = Vector2(23, 13)
-sprite_frames = SubResource("SpriteFrames_xoong")
+sprite_frames = SubResource("SpriteFrames_8dbbm")
 animation = &"press"
 
 [node name="colon" type="Label" parent="CanvasLayer/Info"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.025
+anchor_bottom = 0.025
 offset_left = 41.0
 offset_top = 7.0
 offset_right = 46.0
 offset_bottom = 33.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_d6vtw")
+theme_override_font_sizes/font_size = 25
 text = ":"
 metadata/_edit_use_anchors_ = true
 
 [node name="colon2" type="Label" parent="CanvasLayer/Info"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0809524
+anchor_right = -0.0809524
 offset_left = 157.0
 offset_top = 6.0
 offset_right = 162.0
 offset_bottom = 32.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_d6vtw")
+theme_override_font_sizes/font_size = 25
 text = ":"
 metadata/_edit_use_anchors_ = true
 
 [node name="Blocks" type="AnimatedSprite2D" parent="CanvasLayer/Info"]
-position = Vector2(139, 18)
+position = Vector2(122, 18)
 sprite_frames = ExtResource("10_sphwq")
 animation = &"idle"
 
 [node name="button_done" type="Label" parent="CanvasLayer/Info"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00952381
+anchor_right = 0.0333333
 offset_left = 48.0
 offset_top = 8.0
 offset_right = 58.0
 offset_bottom = 34.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_d6vtw")
+theme_override_font_sizes/font_size = 25
 text = "0"
-metadata/_edit_use_anchors_ = true
-
-[node name="button_total" type="Label" parent="CanvasLayer/Info"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 8.0
-offset_right = 74.0
-offset_bottom = 34.0
-text = "0"
-metadata/_edit_use_anchors_ = true
-
-[node name="Slash" type="Label" parent="CanvasLayer/Info"]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 8.0
-offset_right = 64.0
-offset_bottom = 34.0
-text = "/"
 metadata/_edit_use_anchors_ = true
 
 [node name="block_left" type="Label" parent="CanvasLayer/Info"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0714286
+anchor_top = -0.05
+anchor_right = -0.047619
+anchor_bottom = -0.05
 offset_left = 163.0
 offset_top = 8.0
 offset_right = 173.0
 offset_bottom = 34.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_d6vtw")
+theme_override_font_sizes/font_size = 25
 text = "0
 "
 metadata/_edit_use_anchors_ = true
@@ -431,6 +460,33 @@ polygon = PackedVector2Array(1158, 504, 1182, 504, 1182, 501, 1176, 492, 1164, 4
 [node name="Player" parent="." instance=ExtResource("5_78c3v")]
 position = Vector2(986, 157)
 
+[node name="Water" type="Area2D" parent="."]
+position = Vector2(-162, 128)
+
+[node name="Polygon2D" type="Polygon2D" parent="Water"]
+material = SubResource("ShaderMaterial_a7pod")
+position = Vector2(-667.5, -867.296)
+scale = Vector2(3.4375, 2.29412)
+texture = SubResource("GradientTexture1D_ts8pj")
+polygon = PackedVector2Array(280, 562, 286.685, 562, 293.681, 562, 301.109, 562, 308.531, 562, 314.279, 562, 320.878, 562, 327.083, 562, 331.891, 562, 337.013, 562, 342.236, 562, 348.092, 562, 353.749, 562, 359.955, 562, 366.43, 562, 371.557, 562, 376, 562, 376, 578, 327.698, 578.503, 280, 579)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
+position = Vector2(459.503, 434.498)
+shape = SubResource("RectangleShape2D_pup62")
+
+[node name="Polygon2D2" type="Polygon2D" parent="Water"]
+material = SubResource("ShaderMaterial_a7pod")
+position = Vector2(-203.5, -876.296)
+scale = Vector2(3.4375, 2.29412)
+texture = SubResource("GradientTexture1D_ts8pj")
+polygon = PackedVector2Array(280, 562, 286.685, 562, 293.681, 562, 301.109, 562, 308.531, 562, 314.279, 562, 320.878, 562, 327.083, 562, 331.891, 562, 337.013, 562, 342.236, 562, 348.092, 562, 353.749, 562, 359.955, 562, 366.43, 562, 371.557, 562, 376, 562, 376, 578, 327.698, 578.503, 280, 579)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Water"]
+position = Vector2(923.502, 425.498)
+shape = SubResource("RectangleShape2D_pup62")
+
+[node name="Timer" type="Timer" parent="Water"]
+
 [connection signal="complete_death" from="." to="Player" method="_on_level_9_complete_death"]
 [connection signal="level1_buttonrelease" from="." to="LevelEndDoor" method="_on_level_9_level_1_buttonrelease"]
 [connection signal="level1_complete" from="." to="LevelEndDoor" method="_on_level_9_level_1_complete"]
@@ -442,3 +498,6 @@ position = Vector2(986, 157)
 [connection signal="button_released" from="Buttons3" to="." method="_on_buttons_button_released"]
 [connection signal="body_entered" from="Spike" to="Player" method="_on_spike_body_entered"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
+[connection signal="body_entered" from="Water" to="Player" method="_on_water_body_entered"]
+[connection signal="body_exited" from="Water" to="Player" method="_on_water_body_exited"]
+[connection signal="timeout" from="Water/Timer" to="Player" method="_on_timer_timeout"]

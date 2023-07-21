@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dpdnjdex3251j"]
+[gd_scene load_steps=24 format=3 uid="uid://dpdnjdex3251j"]
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_wtqwn"]
 [ext_resource type="Texture2D" uid="uid://jgfgbk2fpe2y" path="res://Assets/Elements/Levels/6.png" id="2_mp73b"]
@@ -9,11 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://c12k4hrjvliql" path="res://Assets/TileSets/Decorations (32x32).png" id="4_x2ecs"]
 [ext_resource type="SpriteFrames" uid="uid://dj21mhr345s68" path="res://Assets/Character/Brick/brick.tres" id="5_76ont"]
 [ext_resource type="PackedScene" uid="uid://c474bd8f6q8pe" path="res://Scenes/player.tscn" id="5_g56f2"]
+[ext_resource type="FontFile" uid="uid://bq61jktw1igc8" path="res://Assets/Font/LabelFont.tres" id="5_qtidx"]
 [ext_resource type="PackedScene" uid="uid://5cel68grnfv2" path="res://Scenes/buttons.tscn" id="11_gpo34"]
 [ext_resource type="Texture2D" uid="uid://brn0illx54aqo" path="res://Assets/Elements/spike.png" id="11_my26y"]
 [ext_resource type="Shader" path="res://Effects/wave.gdshader" id="12_kivwj"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_bhjkh"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ra2pq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -102,65 +103,73 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="AnimatedSprite2D" parent="CanvasLayer/Info"]
 position = Vector2(23, 13)
-sprite_frames = SubResource("SpriteFrames_bhjkh")
+sprite_frames = SubResource("SpriteFrames_ra2pq")
 animation = &"press"
 
 [node name="colon" type="Label" parent="CanvasLayer/Info"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.025
+anchor_bottom = 0.025
 offset_left = 41.0
 offset_top = 7.0
 offset_right = 46.0
 offset_bottom = 33.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_qtidx")
+theme_override_font_sizes/font_size = 25
 text = ":"
 metadata/_edit_use_anchors_ = true
 
 [node name="colon2" type="Label" parent="CanvasLayer/Info"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0809524
+anchor_right = -0.0809524
 offset_left = 157.0
 offset_top = 6.0
 offset_right = 162.0
 offset_bottom = 32.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_qtidx")
+theme_override_font_sizes/font_size = 25
 text = ":"
 metadata/_edit_use_anchors_ = true
 
 [node name="Blocks" type="AnimatedSprite2D" parent="CanvasLayer/Info"]
-position = Vector2(139, 18)
+position = Vector2(122, 18)
 sprite_frames = ExtResource("5_76ont")
 animation = &"idle"
 
 [node name="button_done" type="Label" parent="CanvasLayer/Info"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00952381
+anchor_right = 0.0333333
 offset_left = 48.0
 offset_top = 8.0
 offset_right = 58.0
 offset_bottom = 34.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_qtidx")
+theme_override_font_sizes/font_size = 25
 text = "0"
-metadata/_edit_use_anchors_ = true
-
-[node name="button_total" type="Label" parent="CanvasLayer/Info"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 8.0
-offset_right = 74.0
-offset_bottom = 34.0
-text = "0"
-metadata/_edit_use_anchors_ = true
-
-[node name="Slash" type="Label" parent="CanvasLayer/Info"]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 8.0
-offset_right = 64.0
-offset_bottom = 34.0
-text = "/"
 metadata/_edit_use_anchors_ = true
 
 [node name="block_left" type="Label" parent="CanvasLayer/Info"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0714286
+anchor_top = -0.05
+anchor_right = -0.047619
+anchor_bottom = -0.05
 offset_left = 163.0
 offset_top = 8.0
 offset_right = 173.0
 offset_bottom = 34.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_qtidx")
+theme_override_font_sizes/font_size = 25
 text = "0
 "
 metadata/_edit_use_anchors_ = true
