@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://t2262o1c4jn5"]
+[gd_scene load_steps=29 format=3 uid="uid://t2262o1c4jn5"]
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_p4g6y"]
 [ext_resource type="Texture2D" uid="uid://haomow0psdnx" path="res://Assets/Elements/Levels/9.png" id="2_xjkk1"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://5cel68grnfv2" path="res://Scenes/buttons.tscn" id="11_dwmot"]
 [ext_resource type="Texture2D" uid="uid://brn0illx54aqo" path="res://Assets/Elements/spike.png" id="11_mpj7n"]
 [ext_resource type="Shader" path="res://Effects/wave.gdshader" id="13_lqswl"]
+[ext_resource type="Script" path="res://Scripts/Secret1.gd" id="14_evqcy"]
+[ext_resource type="Texture2D" uid="uid://dd453k3lk60bx" path="res://Assets/TileSets/Terrain (32x32).png" id="15_qsrei"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8dbbm"]
 animations = [{
@@ -83,6 +85,26 @@ gradient = SubResource("Gradient_p26t2")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pup62"]
 size = Vector2(417, 40.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lw8nf"]
+size = Vector2(24, 74)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o5xua"]
+texture = ExtResource("15_qsrei")
+texture_region_size = Vector2i(32, 32)
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+3:2/0 = 0
+3:3/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yw6gg"]
+tile_size = Vector2i(2, 2)
+sources/0 = SubResource("TileSetAtlasSource_o5xua")
 
 [node name="Level_9" type="Node2D"]
 script = ExtResource("1_p4g6y")
@@ -341,6 +363,11 @@ debug_color = Color(1, 0.00392157, 0.0588235, 0.419608)
 position = Vector2(189, 408)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = -40
+limit_top = 0
+limit_right = 1850
+limit_bottom = 695
+position_smoothing_enabled = true
 
 [node name="Water" type="Area2D" parent="."]
 position = Vector2(-146, 338)
@@ -371,6 +398,266 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(65538, 458752, 1, 65539, 131072, 3, 65540, 131072, 3, 65541, 131072, 3, 65542, 131072, 3, 65543, 131072, 3, 65544, 131072, 3, 65545, 131072, 3, 65546, 131072, 3, 65547, 131072, 3, 65548, 131072, 3, 65549, 131072, 3, 65550, 131072, 3, 65551, 131072, 3, 65552, 131072, 3, 65553, 131072, 3, 65554, 131072, 3, 65555, 131072, 3, 65556, 131072, 3, 65557, 131072, 3, 65558, 131072, 3, 65559, 131072, 3, 65560, 131072, 3, 262168, 65536, 1, 327704, 65536, 2, 393240, 65536, 2, 458776, 65536, 2, 524312, 65536, 2, 589848, 65536, 2, 655384, 65536, 2, 720920, 65536, 2, 786456, 65536, 2, 851992, 65536, 3, 1048600, 65536, 1, 1114136, 65536, 2, 1179672, 524288, 2, 1179671, 131072, 1, 1179670, 131072, 1, 1179669, 131072, 1, 1179668, 131072, 1, 1179667, 131072, 1, 1179666, 131072, 1, 1179665, 131072, 1, 1179664, 131072, 1, 1179663, 131072, 1, 1179662, 131072, 1, 1179661, 131072, 1, 1179660, 131072, 1, 1179659, 131072, 1, 1179658, 458752, 2, 131074, 196608, 2, 196610, 196608, 2, 262146, 196608, 2, 327682, 196608, 2, 393218, 196608, 2, 458754, 196608, 2, 524290, 196608, 2, 589826, 196608, 2, 655362, 196608, 2, 720898, 196608, 2, 786434, 196608, 2, 851970, 196608, 2, 917506, 458752, 2, 262171, 196608, 1, 327707, 196608, 2, 393243, 720896, 2, 458779, 196608, 2, 524315, 196608, 2, 589851, 196608, 2, 655387, 196608, 2, 720923, 196608, 2, 786459, 196608, 2, 851995, 196608, 3, 65564, 131072, 3, 65565, 131072, 3, 65566, 131072, 3, 65567, 131072, 3, 65568, 131072, 3, 65569, 131072, 3, 65570, 131072, 3, 65571, 131072, 3, 65572, 131072, 3, 65573, 131072, 3, 65574, 131072, 3, 65575, 131072, 3, 65576, 131072, 3, 65577, 131072, 3, 1179689, 524288, 2, 1179688, 131072, 1, 1179687, 131072, 1, 1179686, 131072, 1, 1179685, 131072, 1, 1179684, 131072, 1, 1179683, 131072, 1, 1179682, 131072, 1, 1179681, 131072, 1, 65563, 131072, 3, 917507, 131072, 1, 917508, 131072, 1, 917509, 131072, 1, 917510, 131072, 1, 917511, 131072, 1, 917512, 131072, 1, 917513, 131072, 1, 917514, 196608, 1, 983050, 196608, 2, 1048586, 196608, 2, 1114122, 196608, 2, 786447, 65536, 5, 786448, 131072, 5, 786449, 196608, 5, 589834, 65536, 5, 589835, 131072, 5, 589836, 196608, 5, 458768, 65536, 5, 458769, 131072, 5, 458770, 196608, 5, 327700, 327680, 5, 196620, 327680, 5, 393222, 65536, 5, 393223, 131072, 5, 393224, 196608, 5, 262149, 327680, 5, 1048604, 131072, 1, 1048605, 131072, 1, 1048606, 131072, 1, 1048607, 131072, 1, 1048608, 196608, 1, 1114144, 196608, 2, 1179680, 458752, 2, 1048603, 131072, 1, 852004, 65536, 5, 852005, 131072, 5, 852006, 196608, 5, 262185, 131072, 1, 327721, 65536, 2, 393257, 65536, 2, 458793, 65536, 2, 524329, 65536, 2, 589865, 65536, 2, 655401, 65536, 2, 720937, 65536, 2, 786473, 65536, 2, 852009, 65536, 2, 917545, 65536, 2, 983081, 65536, 2, 1048617, 65536, 2, 1114153, 65536, 2, 262177, 65536, 5, 262178, 131072, 5, 262179, 131072, 5, 262180, 131072, 5, 262181, 131072, 5, 262182, 131072, 5, 262183, 131072, 5, 262184, 131072, 5, 393244, 131072, 5, 393245, 131072, 5, 393246, 131072, 5, 393247, 131072, 5, 393248, 196608, 5, 524323, 65536, 5, 524324, 131072, 5, 524325, 196608, 5, 1114167, 131072, 1, 65580, 131072, 3, 262188, 196608, 1, 327724, 196608, 2, 393260, 196608, 2, 458796, 196608, 2, 524332, 196608, 2, 589868, 196608, 2, 655404, 196608, 2, 720940, 196608, 2, 786476, 196608, 2, 852012, 196608, 2, 917548, 196608, 2, 983084, 196608, 2, 1048620, 196608, 2, 1114156, 458752, 2, 65581, 131072, 3, 1114157, 131072, 1, 65582, 131072, 3, 1114158, 131072, 1, 65583, 131072, 3, 1114159, 131072, 1, 65584, 131072, 3, 1114160, 131072, 1, 65585, 131072, 3, 1114161, 131072, 1, 65586, 131072, 3, 1114162, 131072, 1, 65587, 131072, 3, 1114163, 131072, 1, 65588, 131072, 3, 1114164, 131072, 1, 65589, 131072, 3, 1114165, 131072, 1, 65590, 131072, 3, 1114166, 131072, 1, 65591, 131072, 3, 65592, 524288, 1, 1114168, 524288, 2, 131128, 65536, 2, 196664, 65536, 2, 262200, 65536, 2, 327736, 655360, 1, 393272, 65536, 2, 458808, 65536, 2, 524344, 655360, 1, 589880, 65536, 2, 655416, 65536, 2, 720952, 655360, 1, 786488, 65536, 2, 852024, 65536, 2, 917560, 65536, 2, 983096, 65536, 2, 1048632, 65536, 2, 720951, 131072, 5, 720950, 131072, 5, 720949, 131072, 5, 720948, 65536, 5, 524343, 131072, 5, 524342, 65536, 5, 327735, 65536, 5, 393266, 65536, 5, 393267, 131072, 5, 393268, 196608, 5, 655408, 65536, 5, 655409, 131072, 5, 655410, 196608, 5, 262169, 131072, 1, 262170, 131072, 1, 65561, 131072, 3, 65562, 131072, 3, 65578, 131072, 3, 65579, 131072, 3, 262186, 131072, 1, 262187, 131072, 1, 1048601, 131072, 1, 1048602, 131072, 1, 851993, 131072, 3, 851994, 131072, 3)
 
+[node name="Secret2" type="Area2D" parent="."]
+position = Vector2(544, 0)
+script = ExtResource("14_evqcy")
+
+[node name="ColorRect" type="ColorRect" parent="Secret2"]
+offset_left = 786.0
+offset_top = 24.0
+offset_right = 1332.0
+offset_bottom = 622.0
+color = Color(0.246094, 0.21875, 0.316406, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Secret2"]
+position = Vector2(776, 89)
+shape = SubResource("RectangleShape2D_lw8nf")
+
+[node name="TileMap" type="TileMap" parent="Secret2"]
+modulate = Color(0.917647, 1, 1, 1)
+tile_set = SubResource("TileSet_yw6gg")
+cell_quadrant_size = 32
+format = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Secret2"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 59)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D2" type="Sprite2D" parent="Secret2"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 79)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D3" type="Sprite2D" parent="Secret2"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 99)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D4" type="Sprite2D" parent="Secret2"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 119)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D5" type="Sprite2D" parent="Secret2"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 130)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D11" type="Sprite2D" parent="Secret2"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 148)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Secret2"]
+position = Vector2(776, 468)
+shape = SubResource("RectangleShape2D_lw8nf")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Secret2"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 438)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D7" type="Sprite2D" parent="Secret2"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 458)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D8" type="Sprite2D" parent="Secret2"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 478)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D9" type="Sprite2D" parent="Secret2"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 498)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D10" type="Sprite2D" parent="Secret2"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 509)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Secret1" type="Area2D" parent="."]
+script = ExtResource("14_evqcy")
+
+[node name="ColorRect" type="ColorRect" parent="Secret1"]
+offset_left = 786.0
+offset_top = 24.0
+offset_right = 1491.0
+offset_bottom = 622.0
+color = Color(0.246094, 0.21875, 0.316406, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Secret1"]
+position = Vector2(776, 89)
+shape = SubResource("RectangleShape2D_lw8nf")
+
+[node name="TileMap" type="TileMap" parent="Secret1"]
+modulate = Color(0.917647, 1, 1, 1)
+tile_set = SubResource("TileSet_yw6gg")
+cell_quadrant_size = 32
+format = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Secret1"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 59)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D2" type="Sprite2D" parent="Secret1"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 79)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D3" type="Sprite2D" parent="Secret1"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 99)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D4" type="Sprite2D" parent="Secret1"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 119)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D5" type="Sprite2D" parent="Secret1"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 130)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Secret1"]
+position = Vector2(776, 468)
+shape = SubResource("RectangleShape2D_lw8nf")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Secret1"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 438)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D7" type="Sprite2D" parent="Secret1"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 458)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D8" type="Sprite2D" parent="Secret1"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 478)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D9" type="Sprite2D" parent="Secret1"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 498)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
+[node name="Sprite2D10" type="Sprite2D" parent="Secret1"]
+modulate = Color(0.917647, 0.917647, 0.917647, 1)
+position = Vector2(780, 509)
+rotation = 3.14159
+texture = ExtResource("15_qsrei")
+offset = Vector2(0.5, 0)
+hframes = 14
+vframes = 20
+frame = 44
+
 [connection signal="complete_death" from="." to="Player" method="_on_level_9_complete_death"]
 [connection signal="level1_buttonrelease" from="." to="LevelEndDoor" method="_on_level_9_level_1_buttonrelease"]
 [connection signal="level1_complete" from="." to="LevelEndDoor" method="_on_level_9_level_1_complete"]
@@ -385,3 +672,5 @@ layer_1/tile_data = PackedInt32Array(65538, 458752, 1, 65539, 131072, 3, 65540, 
 [connection signal="body_entered" from="Water" to="Player" method="_on_water_body_entered"]
 [connection signal="body_exited" from="Water" to="Player" method="_on_water_body_exited"]
 [connection signal="timeout" from="Water/Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Secret2" to="Secret2" method="_on_body_entered"]
+[connection signal="body_entered" from="Secret1" to="Secret1" method="_on_body_entered"]

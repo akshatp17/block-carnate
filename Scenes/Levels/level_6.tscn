@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dpdnjdex3251j"]
+[gd_scene load_steps=25 format=3 uid="uid://dpdnjdex3251j"]
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_wtqwn"]
 [ext_resource type="Texture2D" uid="uid://jgfgbk2fpe2y" path="res://Assets/Elements/Levels/6.png" id="2_mp73b"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://5cel68grnfv2" path="res://Scenes/buttons.tscn" id="11_gpo34"]
 [ext_resource type="Texture2D" uid="uid://brn0illx54aqo" path="res://Assets/Elements/spike.png" id="11_my26y"]
 [ext_resource type="Shader" path="res://Effects/wave.gdshader" id="12_kivwj"]
+[ext_resource type="PackedScene" uid="uid://cpx2faymqmsm7" path="res://Scenes/jump_pad.tscn" id="14_qnns5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ra2pq"]
 animations = [{
@@ -440,7 +441,7 @@ shape = SubResource("RectangleShape2D_gw8k2")
 debug_color = Color(0.701961, 0, 0, 0.419608)
 
 [node name="Player" parent="." instance=ExtResource("5_g56f2")]
-position = Vector2(218, 129)
+position = Vector2(131, 489)
 
 [node name="Teleport" type="Area2D" parent="."]
 collision_layer = 8
@@ -450,6 +451,9 @@ collision_mask = 8
 position = Vector2(955, 687)
 shape = SubResource("RectangleShape2D_penlq")
 debug_color = Color(0.701961, 0.67451, 0, 0.419608)
+
+[node name="JumpPad" parent="." instance=ExtResource("14_qnns5")]
+position = Vector2(841, 587)
 
 [node name="Water" type="Area2D" parent="."]
 position = Vector2(-162, 128)
@@ -487,7 +491,9 @@ layer_1/tile_data = PackedInt32Array(196611, 196608, 2, 262147, 196608, 2, 32768
 [connection signal="button_released" from="Buttons" to="." method="_on_buttons_button_released"]
 [connection signal="body_entered" from="Spike" to="Player" method="_on_spike_body_entered"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
+[connection signal="jump_trampoline" from="Player" to="JumpPad" method="_on_player_jump_trampoline"]
 [connection signal="body_entered" from="Teleport" to="." method="_on_teleport_body_entered"]
+[connection signal="body_entered" from="JumpPad" to="Player" method="_on_jump_pad_body_entered"]
 [connection signal="body_entered" from="Water" to="Player" method="_on_water_body_entered"]
 [connection signal="body_exited" from="Water" to="Player" method="_on_water_body_exited"]
 [connection signal="timeout" from="Water/Timer" to="Player" method="_on_timer_timeout"]

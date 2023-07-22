@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://tr52bh65tvev"]
+[gd_scene load_steps=23 format=3 uid="uid://tr52bh65tvev"]
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_jodap"]
 [ext_resource type="Texture2D" uid="uid://dc54qvd3ujxyk" path="res://Assets/Elements/Levels/5.png" id="2_jq2el"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://brn0illx54aqo" path="res://Assets/Elements/spike.png" id="11_lf8si"]
 [ext_resource type="PackedScene" uid="uid://5cel68grnfv2" path="res://Scenes/buttons.tscn" id="11_necy1"]
 [ext_resource type="Shader" path="res://Effects/wave.gdshader" id="12_gixno"]
+[ext_resource type="PackedScene" uid="uid://cpx2faymqmsm7" path="res://Scenes/jump_pad.tscn" id="13_0ec5a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7i6o3"]
 animations = [{
@@ -509,6 +510,9 @@ limit_right = 1152
 limit_bottom = 795
 editor_draw_limits = true
 
+[node name="JumpPad" parent="." instance=ExtResource("13_0ec5a")]
+position = Vector2(515, 683)
+
 [node name="Water" type="Area2D" parent="."]
 position = Vector2(-162, 128)
 
@@ -547,6 +551,8 @@ layer_1/tile_data = PackedInt32Array(8, 458752, 1, 65544, 196608, 2, 131080, 196
 [connection signal="button_released" from="Buttons2" to="." method="_on_buttons_button_released"]
 [connection signal="body_entered" from="Spike" to="Player" method="_on_spike_body_entered"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
+[connection signal="jump_trampoline" from="Player" to="JumpPad" method="_on_player_jump_trampoline"]
+[connection signal="body_entered" from="JumpPad" to="Player" method="_on_jump_pad_body_entered"]
 [connection signal="body_entered" from="Water" to="Player" method="_on_water_body_entered"]
 [connection signal="body_exited" from="Water" to="Player" method="_on_water_body_exited"]
 [connection signal="timeout" from="Water/Timer" to="Player" method="_on_timer_timeout"]
