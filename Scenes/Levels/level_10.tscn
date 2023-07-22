@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bpvcrjn5138nq"]
+[gd_scene load_steps=29 format=3 uid="uid://bpvcrjn5138nq"]
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_mc3vf"]
 [ext_resource type="Texture2D" uid="uid://cep225ru3n42k" path="res://Assets/Elements/Levels/10.png" id="2_cqyq2"]
@@ -15,6 +15,7 @@
 [ext_resource type="Shader" path="res://Effects/wave.gdshader" id="13_03xe1"]
 [ext_resource type="Script" path="res://Scripts/SecretPassageCover1_lvl10.gd" id="14_jtxyk"]
 [ext_resource type="Texture2D" uid="uid://dd453k3lk60bx" path="res://Assets/TileSets/Terrain (32x32).png" id="14_xcp7l"]
+[ext_resource type="Texture2D" uid="uid://6ngqn1orrfjw" path="res://Assets/Elements/Door/inlevel door.png" id="16_1xuoa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_58cju"]
 animations = [{
@@ -215,75 +216,132 @@ format = 2
 [node name="LevelEndDoor" parent="." instance=ExtResource("4_00hug")]
 position = Vector2(584, 253)
 
+[node name="FakeDoor" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="FakeDoor"]
+position = Vector2(191, 445)
+texture = ExtResource("16_1xuoa")
+
+[node name="Sprite2D2" type="Sprite2D" parent="FakeDoor"]
+position = Vector2(763, 445)
+texture = ExtResource("16_1xuoa")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FakeDoor"]
+polygon = PackedVector2Array(169, 473, 213, 473, 213, 426, 205, 417, 177, 417, 169, 426)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="FakeDoor"]
+position = Vector2(572, 0)
+polygon = PackedVector2Array(169, 473, 213, 473, 213, 426, 205, 417, 177, 417, 169, 426)
+
+[node name="FakeDoorExit" type="Sprite2D" parent="."]
+position = Vector2(506, 1333)
+rotation = -3.14159
+texture = ExtResource("16_1xuoa")
+
+[node name="B1Exit" type="Sprite2D" parent="."]
+position = Vector2(188, 2333)
+texture = ExtResource("16_1xuoa")
+
+[node name="B1Exit2" type="Sprite2D" parent="."]
+position = Vector2(188, 3677)
+texture = ExtResource("16_1xuoa")
+
+[node name="B1" type="Area2D" parent="."]
+
+[node name="Sprite2D3" type="Sprite2D" parent="B1"]
+position = Vector2(458, 445)
+texture = ExtResource("16_1xuoa")
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="B1"]
+position = Vector2(267, 0)
+polygon = PackedVector2Array(169, 473, 213, 473, 213, 426, 205, 417, 177, 417, 169, 426)
+
+[node name="B2" type="Area2D" parent="."]
+
+[node name="Sprite2D4" type="Sprite2D" parent="B2"]
+position = Vector2(948, 445)
+texture = ExtResource("16_1xuoa")
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="B2"]
+position = Vector2(757, 0)
+polygon = PackedVector2Array(169, 473, 213, 473, 213, 426, 205, 417, 177, 417, 169, 426)
+
 [node name="Player" parent="." instance=ExtResource("5_c7qci")]
-position = Vector2(156, 421)
+position = Vector2(529, 269)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = -50
+limit_top = 0
+limit_right = 1100
+limit_bottom = 4450
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+editor_draw_limits = true
 
 [node name="Buttons" parent="." instance=ExtResource("11_worgu")]
-position = Vector2(741, 315)
+position = Vector2(905, 617)
 
 [node name="Spike" type="Area2D" parent="."]
 position = Vector2(-394, -62)
 
 [node name="Sprite2D9" type="Sprite2D" parent="Spike"]
-position = Vector2(1244, 296)
+position = Vector2(1257, 645)
 rotation = 3.14159
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("11_gxcml")
 hframes = 2
 
 [node name="Sprite2D10" type="Sprite2D" parent="Spike"]
-position = Vector2(1256, 296)
+position = Vector2(1269, 645)
 rotation = 3.14159
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("11_gxcml")
 hframes = 2
 
 [node name="Sprite2D11" type="Sprite2D" parent="Spike"]
-position = Vector2(1268, 296)
+position = Vector2(1281, 645)
 rotation = 3.14159
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("11_gxcml")
 hframes = 2
 
 [node name="Sprite2D12" type="Sprite2D" parent="Spike"]
-position = Vector2(1280, 296)
+position = Vector2(1293, 645)
 rotation = 3.14159
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("11_gxcml")
 hframes = 2
 
 [node name="Sprite2D13" type="Sprite2D" parent="Spike"]
-position = Vector2(1292, 296)
+position = Vector2(1305, 645)
 rotation = 3.14159
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("11_gxcml")
 hframes = 2
 
 [node name="Sprite2D14" type="Sprite2D" parent="Spike"]
-position = Vector2(1304, 296)
+position = Vector2(1317, 645)
 rotation = 3.14159
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("11_gxcml")
 hframes = 2
 
 [node name="Sprite2D15" type="Sprite2D" parent="Spike"]
-position = Vector2(1315, 296)
+position = Vector2(1328, 645)
 rotation = 3.14159
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("11_gxcml")
 hframes = 2
 
 [node name="Sprite2D16" type="Sprite2D" parent="Spike"]
-position = Vector2(1325, 296)
+position = Vector2(1338, 645)
 rotation = 3.14159
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("11_gxcml")
 hframes = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Spike"]
-position = Vector2(1285.5, 286.5)
+position = Vector2(1298.5, 635.5)
 shape = SubResource("RectangleShape2D_igja1")
 debug_color = Color(0.701961, 0, 0, 0.419608)
 
@@ -493,7 +551,6 @@ vframes = 20
 frame = 44
 
 [node name="SecretPassageCover2" type="Area2D" parent="."]
-visible = false
 script = ExtResource("14_jtxyk")
 
 [node name="ColorRect" type="ColorRect" parent="SecretPassageCover2"]
