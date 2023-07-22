@@ -12,5 +12,4 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	if body.name == "Player":
-		set_modulate(100)
+	set_modulate(100)
