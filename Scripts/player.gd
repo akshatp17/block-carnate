@@ -5,6 +5,8 @@ signal jump_trampoline
 
 @onready var animsprite_2d = $Sprite2D
 @onready var timer
+@onready var jump_sfx = $Jump
+@onready var death_sfx = $Death
 
 const SPEED = 200.0
 
@@ -45,7 +47,7 @@ func _physics_process(delta):
 	
 	#Complete loop of movement, it stops when the player dies completly
 	if movement:
-		
+
 		if not is_on_floor():
 			velocity.y += gravity * delta
 	
@@ -54,6 +56,7 @@ func _physics_process(delta):
 		#Jumping
 		if Input.is_action_just_pressed("move_jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
+			jump_sfx.play()
 		
 		#Movement
 		if direction:
@@ -79,7 +82,6 @@ func _physics_process(delta):
 				else:
 					animsprite_2d.set_flip_h(false)
 					animsprite_2d.play("run")
-		
 		#Idle position
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -136,6 +138,7 @@ func _on_timer_timeout():
 		movement = false
 		timer.stop()
 		animsprite_2d.play("dead")
+		death_sfx.play()
 		complete_death = true
 
 #All level signals for player death if block ends
@@ -146,6 +149,7 @@ func _on_level_1_complete_death(brick_death):
 	if brick_death == -1:
 		movement = false
 		animsprite_2d.play("dead")
+		death_sfx.play()
 		complete_death = true
 
 
@@ -156,6 +160,7 @@ func _on_level_2_complete_death(brick_death):
 	if brick_death == -1:
 		movement = false
 		animsprite_2d.play("dead")
+		death_sfx.play()
 		complete_death = true
 
 
@@ -166,6 +171,7 @@ func _on_level_3_complete_death(brick_death):
 	if brick_death == -1:
 		movement = false
 		animsprite_2d.play("dead")
+		death_sfx.play()
 		complete_death = true
 
 
@@ -176,6 +182,7 @@ func _on_level_4_complete_death(brick_death):
 	if brick_death == -1:
 		movement = false
 		animsprite_2d.play("dead")
+		death_sfx.play()
 		complete_death = true
 
 
@@ -186,6 +193,7 @@ func _on_level_5_complete_death(brick_death):
 	if brick_death == -1:
 		movement = false
 		animsprite_2d.play("dead")
+		death_sfx.play()
 		complete_death = true
 
 
@@ -196,6 +204,7 @@ func _on_level_6_complete_death(brick_death):
 	if brick_death == -1:
 		movement = false
 		animsprite_2d.play("dead")
+		death_sfx.play()
 		complete_death = true
 
 
@@ -206,6 +215,7 @@ func _on_level_7_complete_death(brick_death):
 	if brick_death == -1:
 		movement = false
 		animsprite_2d.play("dead")
+		death_sfx.play()
 		complete_death = true
 
 
@@ -216,6 +226,7 @@ func _on_level_8_complete_death(brick_death):
 	if brick_death == -1:
 		movement = false
 		animsprite_2d.play("dead")
+		death_sfx.play()
 		complete_death = true
 
 
@@ -226,6 +237,7 @@ func _on_level_9_complete_death(brick_death):
 	if brick_death == -1:
 		movement = false
 		animsprite_2d.play("dead")
+		death_sfx.play()
 		complete_death = true
 
 
@@ -236,6 +248,7 @@ func _on_level_10_complete_death(brick_death):
 	if brick_death == -1:
 		movement = false
 		animsprite_2d.play("dead")
+		death_sfx.play()
 		complete_death = true
 
 
