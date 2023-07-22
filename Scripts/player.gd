@@ -237,3 +237,8 @@ func _on_level_10_complete_death(brick_death):
 		movement = false
 		animsprite_2d.play("dead")
 		complete_death = true
+
+
+func _on_fake_door_body_entered(body):
+	if body.name == "Player":
+		set_position(Vector2(505,1325))
