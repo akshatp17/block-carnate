@@ -265,3 +265,8 @@ func _on_b_1_body_entered(body):
 func _on_b_2_body_entered(body):
 	if body.name == "Player":
 		set_position(Vector2(188,3689))
+
+
+func _on_fake_door_body_entered_lvl8(body):
+	if body.name == "Player":
+		set_position(Vector2(615, 139))

@@ -12,7 +12,6 @@ func _process(delta):
 	pass
 
 func _on_body_entered(body):
-	print(1)
 	emit_anti_gravity()
 
 func emit_anti_gravity():

@@ -33,16 +33,18 @@ theme_override_font_sizes/font_size = 72
 text = "Start"
 
 [node name="Block" type="Sprite2D" parent="."]
-position = Vector2(595, 103)
+position = Vector2(595, 85)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_qqxlx")
 
 [node name="Carnate" type="Sprite2D" parent="."]
-position = Vector2(595, 256)
+position = Vector2(595, 205)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_ymmpj")
 
 [node name="Brick" type="AnimatedSprite2D" parent="."]
-position = Vector2(587, 89)
-scale = Vector2(6, 6)
+position = Vector2(588, 72)
+scale = Vector2(4.5, 4.5)
 sprite_frames = ExtResource("4_if2qv")
 animation = &"idle"
 autoplay = "idle"

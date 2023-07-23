@@ -442,7 +442,7 @@ shape = SubResource("RectangleShape2D_woioe")
 debug_color = Color(0.701961, 0, 0, 0.419608)
 
 [node name="Player" parent="." instance=ExtResource("5_8umbv")]
-position = Vector2(217, 265)
+position = Vector2(218, 332)
 
 [node name="Water" type="Area2D" parent="."]
 position = Vector2(-162, 128)
