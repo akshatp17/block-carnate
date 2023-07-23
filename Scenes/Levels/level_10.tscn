@@ -209,18 +209,19 @@ position = Vector2(584, 253)
 script = ExtResource("10_rf3po")
 
 [node name="Sprite2D" type="Sprite2D" parent="FakeDoor"]
-position = Vector2(191, 445)
+position = Vector2(215, 445)
 texture = ExtResource("16_1xuoa")
 
 [node name="Sprite2D2" type="Sprite2D" parent="FakeDoor"]
-position = Vector2(763, 445)
+position = Vector2(715, 445)
 texture = ExtResource("16_1xuoa")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FakeDoor"]
+position = Vector2(24, 0)
 polygon = PackedVector2Array(169, 473, 213, 473, 213, 426, 205, 417, 177, 417, 169, 426)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="FakeDoor"]
-position = Vector2(572, 0)
+position = Vector2(524, 0)
 polygon = PackedVector2Array(169, 473, 213, 473, 213, 426, 205, 417, 177, 417, 169, 426)
 
 [node name="FakeDoorExit" type="Sprite2D" parent="."]
@@ -250,11 +251,11 @@ polygon = PackedVector2Array(169, 473, 213, 473, 213, 426, 205, 417, 177, 417, 1
 [node name="B2" type="Area2D" parent="."]
 
 [node name="Sprite2D4" type="Sprite2D" parent="B2"]
-position = Vector2(948, 445)
+position = Vector2(924, 445)
 texture = ExtResource("16_1xuoa")
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="B2"]
-position = Vector2(757, 0)
+position = Vector2(733, 0)
 polygon = PackedVector2Array(169, 473, 213, 473, 213, 426, 205, 417, 177, 417, 169, 426)
 
 [node name="Player" parent="." instance=ExtResource("5_c7qci")]
@@ -786,6 +787,7 @@ layer_0/tile_data = PackedInt32Array(121897327, 131072, 1, 121897343, 131072, 1,
 [connection signal="body_entered" from="FakeDoor" to="Player" method="_on_fake_door_body_entered"]
 [connection signal="body_entered" from="B1" to="Player" method="_on_b_1_body_entered"]
 [connection signal="body_entered" from="B2" to="Player" method="_on_b_2_body_entered"]
+[connection signal="call_gameoverscreen" from="Player" to="." method="_on_player_call_gameoverscreen"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="jump_trampoline" from="Player" to="JumpPad" method="_on_player_jump_trampoline_1_LVL10"]
 [connection signal="jump_trampoline" from="Player" to="JumpPad2" method="_on_player_jump_trampoline_2_LVL10"]

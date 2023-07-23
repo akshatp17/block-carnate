@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 signal death
 signal jump_trampoline
+signal level_info
+signal call_gameoverscreen
 
 @onready var animsprite_2d = $Sprite2D
 @onready var timer
@@ -14,6 +16,7 @@ var JUMP_VELOCITY = -425.0
 var wait_time = 3.0
 var initial_pos
 var death_pos
+var current_level
 
 var jump_nerf = false
 var movement = true
@@ -23,12 +26,15 @@ var brick_stop = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
+	
+	current_level = ( get_tree().get_current_scene().get_name() ).to_int()
+	
 	initial_pos = get_position()
 	jump_nerf = false
 	movement = true
 	complete_death = false
 	
-	if ( get_tree().get_current_scene().get_name() ).to_int() in [3,4,5,6,7,8,9,10]:
+	if current_level in [3,4,5,6,7,8,9,10]:
 		timer = $"../Water/Timer"
 		timer.set_wait_time(wait_time)
 
@@ -42,6 +48,8 @@ func _physics_process(delta):
 	#If player dies completely, then scene change
 	if complete_death:
 		if not animsprite_2d.is_playing():
+			emit_signal("call_gameoverscreen")
+
 			get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 			queue_free()
 	
@@ -97,6 +105,7 @@ func _on_area_2d_body_entered(body):
 		else:
 			death_pos = get_position()
 			emit_signal("death",death_pos)
+			
 #Function to respawn and giving the position
 func on_death():
 	death_pos = get_position()

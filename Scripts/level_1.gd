@@ -7,6 +7,7 @@ signal complete_death
 
 @onready var brick = preload("res://Scenes/brick.tscn")
 @onready var button = preload("res://Scenes/buttons.tscn")
+@onready var gameover_screen = load("res://Scenes/game_over.tscn")
 @onready var player = $Player
 
 var button_counter = 0
@@ -15,7 +16,7 @@ var brick_total = 0
 var brick_left = 0
 
 var button_list = [1,1,1,1,2,1,3,3,3,3]
-var brick_list = [5,7,7,10,10,10,10,10,10,10]
+var brick_list = [5,7,7,4,3,3,5,4,5,10]
 
 var release_lock = false
 
@@ -74,3 +75,10 @@ func _on_buttons_button_released():
 func _on_teleport_body_entered(body):
 	var x_pos = body.position.x
 	body.set_position(Vector2(x_pos,-50))
+
+
+func _on_player_call_gameoverscreen():
+	#var gameover_instance = gameover_screen.instantiate()
+	#gameover_instance.set_position(Vector2(0,0))
+	#call_deferred("add_child",gameover_instance)
+	pass

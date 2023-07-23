@@ -367,7 +367,7 @@ debug_color = Color(0.701961, 0, 0, 0.419608)
 position = Vector2(550, 555)
 
 [node name="Player" parent="." instance=ExtResource("5_hos2t")]
-position = Vector2(671, 365)
+position = Vector2(170, 519)
 
 [node name="Water" type="Area2D" parent="."]
 
@@ -425,6 +425,7 @@ libraries = {
 [connection signal="button_released" from="Buttons" to="." method="_on_buttons_button_released"]
 [connection signal="body_entered" from="Spike" to="Player" method="_on_spike_body_entered"]
 [connection signal="body_entered" from="JumpPad" to="Player" method="_on_jump_pad_body_entered"]
+[connection signal="call_gameoverscreen" from="Player" to="." method="_on_player_call_gameoverscreen"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="jump_trampoline" from="Player" to="JumpPad" method="_on_player_jump_trampoline"]
 [connection signal="body_entered" from="Water" to="Player" method="_on_water_body_entered"]

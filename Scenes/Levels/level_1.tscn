@@ -336,4 +336,5 @@ libraries = {
 [connection signal="button_pressedd" from="Buttons" to="." method="_on_buttons_button_pressedd"]
 [connection signal="button_released" from="Buttons" to="." method="_on_buttons_button_released"]
 [connection signal="body_entered" from="Spike" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="call_gameoverscreen" from="Player" to="." method="_on_player_call_gameoverscreen"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]

@@ -550,6 +550,7 @@ layer_1/tile_data = PackedInt32Array(8, 458752, 1, 65544, 196608, 2, 131080, 196
 [connection signal="button_pressedd" from="Buttons2" to="." method="_on_buttons_button_pressedd"]
 [connection signal="button_released" from="Buttons2" to="." method="_on_buttons_button_released"]
 [connection signal="body_entered" from="Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="call_gameoverscreen" from="Player" to="." method="_on_player_call_gameoverscreen"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="jump_trampoline" from="Player" to="JumpPad" method="_on_player_jump_trampoline"]
 [connection signal="body_entered" from="JumpPad" to="Player" method="_on_jump_pad_body_entered"]

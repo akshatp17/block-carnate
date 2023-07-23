@@ -22,6 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p7xux")
+metadata/_edit_lock_ = true
 
 [node name="Level" type="TileMap" parent="."]
 tile_set = ExtResource("2_2v4la")
@@ -50,6 +51,7 @@ offset_bottom = 258.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_8hdhy")
+metadata/_edit_group_ = true
 
 [node name="TryAgainButton" type="Button" parent="Panel"]
 layout_mode = 1
@@ -82,14 +84,14 @@ anchor_left = 0.396552
 anchor_top = 0.660377
 anchor_right = 0.604526
 anchor_bottom = 0.924528
-offset_top = -8.00002
-offset_bottom = -8.0
+offset_top = 7.99998
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.647059, 0.94902, 1, 1)
-theme_override_colors/font_pressed_color = Color(0.647059, 1, 0.784314, 1)
-theme_override_colors/font_hover_color = Color(0.666667, 1, 0.647059, 1)
-theme_override_colors/font_focus_color = Color(0.419608, 0.796078, 0.870588, 1)
+theme_override_colors/font_color = Color(1, 0.811765, 0.647059, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.921569, 0.647059, 1)
+theme_override_colors/font_hover_color = Color(0.933333, 0.839216, 0.466667, 1)
+theme_override_colors/font_focus_color = Color(0.870588, 0.545098, 0.419608, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("2_os4ax")
@@ -98,6 +100,7 @@ text = "NO"
 flat = true
 
 [node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = -3.0
 offset_right = 933.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://t2262o1c4jn5"]
+[gd_scene load_steps=33 format=3 uid="uid://t2262o1c4jn5"]
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_p4g6y"]
 [ext_resource type="Texture2D" uid="uid://haomow0psdnx" path="res://Assets/Elements/Levels/9.png" id="2_xjkk1"]
@@ -15,6 +15,7 @@
 [ext_resource type="Shader" path="res://Effects/wave.gdshader" id="13_lqswl"]
 [ext_resource type="Script" path="res://Scripts/Secret1.gd" id="14_evqcy"]
 [ext_resource type="Texture2D" uid="uid://dd453k3lk60bx" path="res://Assets/TileSets/Terrain (32x32).png" id="15_qsrei"]
+[ext_resource type="PackedScene" uid="uid://cpx2faymqmsm7" path="res://Scenes/jump_pad.tscn" id="16_pop8n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8dbbm"]
 animations = [{
@@ -715,6 +716,9 @@ libraries = {
 "": SubResource("AnimationLibrary_xp3yl")
 }
 
+[node name="JumpPad" parent="." instance=ExtResource("16_pop8n")]
+position = Vector2(1630, 522)
+
 [connection signal="complete_death" from="." to="Player" method="_on_level_9_complete_death"]
 [connection signal="level1_buttonrelease" from="." to="LevelEndDoor" method="_on_level_9_level_1_buttonrelease"]
 [connection signal="level1_complete" from="." to="LevelEndDoor" method="_on_level_9_level_1_complete"]
@@ -725,9 +729,12 @@ libraries = {
 [connection signal="button_pressedd" from="Buttons3" to="." method="_on_buttons_button_pressedd"]
 [connection signal="button_released" from="Buttons3" to="." method="_on_buttons_button_released"]
 [connection signal="body_entered" from="Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="call_gameoverscreen" from="Player" to="." method="_on_player_call_gameoverscreen"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
+[connection signal="jump_trampoline" from="Player" to="JumpPad" method="_on_player_jump_trampoline"]
 [connection signal="body_entered" from="Water" to="Player" method="_on_water_body_entered"]
 [connection signal="body_exited" from="Water" to="Player" method="_on_water_body_exited"]
 [connection signal="timeout" from="Water/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Secret2" to="Secret2" method="_on_body_entered"]
 [connection signal="body_entered" from="Secret1" to="Secret1" method="_on_body_entered"]
+[connection signal="body_entered" from="JumpPad" to="Player" method="_on_jump_pad_body_entered"]

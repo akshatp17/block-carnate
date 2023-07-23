@@ -363,7 +363,7 @@ texture = ExtResource("14_3gtae")
 polygon = PackedVector2Array(430, 537, 476, 537, 476, 489, 468, 481, 439, 481, 430, 490)
 
 [node name="Player" parent="." instance=ExtResource("5_0qqjg")]
-position = Vector2(169, 457)
+position = Vector2(201, 460)
 
 [node name="JumpPad" parent="." instance=ExtResource("14_ukq8e")]
 position = Vector2(906, 556)
@@ -420,6 +420,7 @@ layer_1/tile_data = PackedInt32Array(131073, 196608, 2, 196609, 196608, 2, 26214
 [connection signal="button_released" from="Buttons3" to="." method="_on_buttons_button_released"]
 [connection signal="body_entered" from="Spike" to="Player" method="_on_spike_body_entered"]
 [connection signal="body_entered" from="FakeDoor" to="Player" method="_on_fake_door_body_entered_lvl8"]
+[connection signal="call_gameoverscreen" from="Player" to="." method="_on_player_call_gameoverscreen"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="jump_trampoline" from="Player" to="JumpPad" method="_on_player_jump_trampoline"]
 [connection signal="body_entered" from="JumpPad" to="Player" method="_on_jump_pad_body_entered"]
