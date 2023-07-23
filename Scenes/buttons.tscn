@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://5cel68grnfv2"]
+[gd_scene load_steps=5 format=3 uid="uid://5cel68grnfv2"]
 
 [ext_resource type="Texture2D" uid="uid://lam4gh6ofj5l" path="res://Assets/Elements/Buttons1.png" id="1_rbar7"]
 [ext_resource type="Script" path="res://Scripts/buttons.gd" id="1_s07m6"]
 [ext_resource type="Texture2D" uid="uid://j6bvu34ott3p" path="res://Assets/Elements/Buttons2.png" id="2_8qocw"]
+[ext_resource type="AudioStream" uid="uid://byxy7llde7tvu" path="res://Assets/Audio/SFX/Button_Pressed.mp3" id="4_2nnes"]
 
 [node name="Buttons" type="Area2D"]
 collision_layer = 2
@@ -23,6 +24,9 @@ polygon = PackedVector2Array(12, 9, 12, 5, 10, 3, -10, 3, -12, 5, -12, 9)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform"]
 polygon = PackedVector2Array(-16, 16, 16, 16, 16, 12, 13, 9, -13, 9, -16, 12)
+
+[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2nnes")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

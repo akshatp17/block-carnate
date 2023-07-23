@@ -3,6 +3,8 @@ extends Area2D
 @onready var door = $Door
 @onready var animation_player = $AnimationPlayer
 @onready var collision_polygon_2d = $CollisionPolygon2D
+@onready var open_sfx = $open
+@onready var close_sfx = $close
 
 var lock = true
 var end = false
@@ -21,10 +23,12 @@ func _process(delta):
 func door_open():
 	if not lock:
 		animation_player.play("Open")
+		open_sfx.play()
 		
 func door_close():
 	if end:
 		animation_player.play_backwards("Open")
+		close_sfx.play()
 		end = false
 	
 

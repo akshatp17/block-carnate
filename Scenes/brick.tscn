@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://flm234tophj2"]
+[gd_scene load_steps=4 format=3 uid="uid://flm234tophj2"]
 
 [ext_resource type="Script" path="res://Scripts/brick.gd" id="1_byjby"]
 [ext_resource type="SpriteFrames" uid="uid://dj21mhr345s68" path="res://Assets/Character/Brick/brick.tres" id="2_8y4sb"]
+[ext_resource type="AudioStream" uid="uid://bhxurb0u0kvs5" path="res://Assets/Audio/SFX/block appear.mp3" id="3_rf7uw"]
 
 [node name="Brick" type="CharacterBody2D"]
 collision_layer = 43
@@ -15,3 +16,6 @@ autoplay = "idle"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-15, -8, -12, -11, 12, -11, 15, -8, 15, 13, 12, 16, -12, 16, -15, 13)
+
+[node name="appear_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rf7uw")

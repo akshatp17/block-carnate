@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpx2faymqmsm7"]
+[gd_scene load_steps=8 format=3 uid="uid://cpx2faymqmsm7"]
 
 [ext_resource type="Script" path="res://Scripts/jump_pad.gd" id="1_hota6"]
 [ext_resource type="Texture2D" uid="uid://dimeibq7a7djd" path="res://Assets/Elements/Jump (28x28).png" id="1_t2r3o"]
+[ext_resource type="AudioStream" uid="uid://d4kv3vleijc8x" path="res://Assets/Audio/SFX/Boing.wav" id="3_m62gi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1awxk"]
 size = Vector2(25, 8)
@@ -85,3 +86,6 @@ shape = SubResource("RectangleShape2D_1awxk")
 libraries = {
 "": SubResource("AnimationLibrary_bovb1")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m62gi")

@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cn5gcm8rj1h4c"]
+[gd_scene load_steps=8 format=3 uid="uid://cn5gcm8rj1h4c"]
 
 [ext_resource type="Script" path="res://Scripts/level_end_door.gd" id="1_6d0g6"]
 [ext_resource type="Texture2D" uid="uid://cygj5t35klxp1" path="res://Assets/Elements/Door/Opening (46x56).png" id="1_p0m2e"]
+[ext_resource type="AudioStream" uid="uid://bp4vt87abaimd" path="res://Assets/Audio/SFX/Door opening.mp3" id="3_0trqy"]
+[ext_resource type="AudioStream" uid="uid://bl7p1y5og8r43" path="res://Assets/Audio/SFX/Door close.mp3" id="4_8x8ty"]
 
 [sub_resource type="Animation" id="Animation_dj8ma"]
 resource_name = "Open"
@@ -79,5 +81,12 @@ polygon = PackedVector2Array(-23, 28, 23, 28, 23, -19, 14, -28, -14, -28, -23, -
 libraries = {
 "": SubResource("AnimationLibrary_8fkkj")
 }
+
+[node name="open" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0trqy")
+volume_db = 3.0
+
+[node name="close" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8x8ty")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered_level_end"]

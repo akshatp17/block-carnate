@@ -259,7 +259,6 @@ polygon = PackedVector2Array(169, 473, 213, 473, 213, 426, 205, 417, 177, 417, 1
 
 [node name="Player" parent="." instance=ExtResource("5_c7qci")]
 position = Vector2(591, 459)
-metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = -50
