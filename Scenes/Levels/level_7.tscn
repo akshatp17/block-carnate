@@ -206,7 +206,7 @@ position = Vector2(275, 105)
 rotation = 3.14159
 
 [node name="Buttons2" parent="." instance=ExtResource("11_cdqw0")]
-position = Vector2(925, 489)
+position = Vector2(825, 585)
 
 [node name="Spike" type="Area2D" parent="."]
 position = Vector2(-394, -62)
@@ -239,42 +239,42 @@ texture = ExtResource("11_6mf4m")
 hframes = 2
 
 [node name="Sprite2D20" type="Sprite2D" parent="Spike"]
-position = Vector2(1187, 165)
+position = Vector2(1192, 165)
 rotation = 3.14159
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("11_6mf4m")
 hframes = 2
 
 [node name="Sprite2D21" type="Sprite2D" parent="Spike"]
-position = Vector2(1199, 165)
+position = Vector2(1204, 165)
 rotation = 3.14159
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("11_6mf4m")
 hframes = 2
 
 [node name="Sprite2D22" type="Sprite2D" parent="Spike"]
-position = Vector2(1211, 165)
+position = Vector2(1216, 165)
 rotation = 3.14159
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("11_6mf4m")
 hframes = 2
 
 [node name="Sprite2D23" type="Sprite2D" parent="Spike"]
-position = Vector2(1223, 165)
+position = Vector2(1228, 165)
 rotation = 3.14159
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("11_6mf4m")
 hframes = 2
 
 [node name="Sprite2D24" type="Sprite2D" parent="Spike"]
-position = Vector2(1235, 165)
+position = Vector2(1240, 165)
 rotation = 3.14159
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("11_6mf4m")
 hframes = 2
 
 [node name="Sprite2D25" type="Sprite2D" parent="Spike"]
-position = Vector2(1247, 165)
+position = Vector2(1252, 165)
 rotation = 3.14159
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("11_6mf4m")
@@ -437,12 +437,12 @@ shape = SubResource("RectangleShape2D_2m7mi")
 debug_color = Color(0.701961, 0, 0, 0.419608)
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Spike"]
-position = Vector2(1218, 156.5)
+position = Vector2(1223, 156.5)
 shape = SubResource("RectangleShape2D_woioe")
 debug_color = Color(0.701961, 0, 0, 0.419608)
 
 [node name="Player" parent="." instance=ExtResource("5_8umbv")]
-position = Vector2(218, 332)
+position = Vector2(681, 327)
 
 [node name="Water" type="Area2D" parent="."]
 position = Vector2(-162, 128)
