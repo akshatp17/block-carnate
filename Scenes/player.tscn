@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c474bd8f6q8pe"]
+[gd_scene load_steps=38 format=3 uid="uid://c474bd8f6q8pe"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_saf2o"]
 [ext_resource type="Texture2D" uid="uid://ctqsrwv3n1wp7" path="res://Assets/Character/Blue/Dude_Monster_Death_8.png" id="2_irsm3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://buemfbau8fs46" path="res://Assets/Character/Blue/Dude_Monster_Jump_8.png" id="3_v5j4a"]
 [ext_resource type="Texture2D" uid="uid://buhgxxnmsu3p8" path="res://Assets/Character/Blue/Dude_Monster_Push_6.png" id="4_wo5v3"]
 [ext_resource type="AudioStream" uid="uid://cnmta5wx5v0hn" path="res://Assets/Audio/SFX/cute jump.mp3" id="7_2q1e2"]
+[ext_resource type="FontFile" uid="uid://8vtji7cxsm8h" path="res://Assets/Font/upheavtt.ttf" id="9_cuqjl"]
 [ext_resource type="AudioStream" uid="uid://cuouvqdbexf8w" path="res://Assets/Audio/SFX/death 1.mp3" id="9_etvfn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxj6c"]
@@ -248,5 +249,16 @@ volume_db = -5.0
 stream = ExtResource("9_etvfn")
 
 [node name="Counter" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -4.0
+offset_top = -28.0
+offset_right = 6.0
+offset_bottom = -10.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("9_cuqjl")
+text = "0"
 
 [connection signal="timeout" from="Counter" to="." method="_on_counter_timeout"]
