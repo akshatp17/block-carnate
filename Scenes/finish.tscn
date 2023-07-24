@@ -126,6 +126,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Logo" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 318.0
 offset_top = 174.0
 offset_right = 826.0
@@ -133,6 +134,7 @@ offset_bottom = 181.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jlt0r")
 
 [node name="Logo2" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 333.0
 offset_top = 101.0
 offset_right = 807.0

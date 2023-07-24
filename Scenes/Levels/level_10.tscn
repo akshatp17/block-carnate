@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bpvcrjn5138nq"]
+[gd_scene load_steps=36 format=3 uid="uid://bpvcrjn5138nq"]
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_mc3vf"]
 [ext_resource type="Texture2D" uid="uid://cep225ru3n42k" path="res://Assets/Elements/Levels/10.png" id="2_cqyq2"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dd453k3lk60bx" path="res://Assets/TileSets/Terrain (32x32).png" id="14_xcp7l"]
 [ext_resource type="Texture2D" uid="uid://6ngqn1orrfjw" path="res://Assets/Elements/Door/inlevel door.png" id="16_1xuoa"]
 [ext_resource type="PackedScene" uid="uid://cpx2faymqmsm7" path="res://Scenes/jump_pad.tscn" id="17_l73vo"]
+[ext_resource type="Script" path="res://Scripts/Teleporter.gd" id="20_w64sp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_58cju"]
 animations = [{
@@ -92,6 +93,47 @@ size = Vector2(116.5, 20)
 
 [sub_resource type="TileSet" id="TileSet_mtb3v"]
 tile_size = Vector2i(2, 2)
+
+[sub_resource type="Animation" id="Animation_yymqn"]
+resource_name = "level10"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Moving:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(68, 4), Vector2(-110, 4), Vector2(68, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_cddti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Moving:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(68, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oveip"]
+_data = {
+"RESET": SubResource("Animation_cddti"),
+"level10": SubResource("Animation_yymqn")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvxdg"]
+size = Vector2(234, 20)
 
 [node name="Level_10" type="Node2D"]
 script = ExtResource("1_mc3vf")
@@ -400,6 +442,59 @@ hframes = 2
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Spike"]
 position = Vector2(960.5, 2299.5)
+shape = SubResource("RectangleShape2D_igja1")
+debug_color = Color(0.701961, 0, 0, 0.419608)
+
+[node name="Sprite2D57" type="Sprite2D" parent="Spike"]
+position = Vector2(906, 2857)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("11_gxcml")
+hframes = 2
+
+[node name="Sprite2D58" type="Sprite2D" parent="Spike"]
+position = Vector2(918, 2857)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("11_gxcml")
+hframes = 2
+
+[node name="Sprite2D59" type="Sprite2D" parent="Spike"]
+position = Vector2(930, 2857)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("11_gxcml")
+hframes = 2
+
+[node name="Sprite2D60" type="Sprite2D" parent="Spike"]
+position = Vector2(942, 2857)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("11_gxcml")
+hframes = 2
+
+[node name="Sprite2D61" type="Sprite2D" parent="Spike"]
+position = Vector2(954, 2857)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("11_gxcml")
+hframes = 2
+
+[node name="Sprite2D62" type="Sprite2D" parent="Spike"]
+position = Vector2(966, 2857)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("11_gxcml")
+hframes = 2
+
+[node name="Sprite2D63" type="Sprite2D" parent="Spike"]
+position = Vector2(977, 2857)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("11_gxcml")
+hframes = 2
+
+[node name="Sprite2D64" type="Sprite2D" parent="Spike"]
+position = Vector2(988, 2857)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("11_gxcml")
+hframes = 2
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Spike"]
+position = Vector2(946.5, 2866)
 shape = SubResource("RectangleShape2D_igja1")
 debug_color = Color(0.701961, 0, 0, 0.419608)
 
@@ -782,6 +877,44 @@ cell_quadrant_size = 32
 format = 2
 layer_0/tile_data = PackedInt32Array(121897327, 131072, 1, 121897343, 131072, 1, 121897359, 131072, 1, 121897375, 131072, 1)
 
+[node name="JumpPad7" parent="." instance=ExtResource("17_l73vo")]
+position = Vector2(467, 2635)
+
+[node name="Moving" type="Node2D" parent="."]
+position = Vector2(68, 4)
+metadata/_edit_group_ = true
+
+[node name="JumpPad8" parent="Moving" instance=ExtResource("17_l73vo")]
+position = Vector2(584, 2411)
+
+[node name="Level3" type="TileMap" parent="Moving"]
+position = Vector2(-8, -7)
+tile_set = ExtResource("3_b3ori")
+format = 2
+layer_0/name = "BG"
+layer_1/name = "Main"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(4980754, 327680, 5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "level10"
+libraries = {
+"": SubResource("AnimationLibrary_oveip")
+}
+
+[node name="Teleporter" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("20_w64sp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleporter"]
+position = Vector2(550, 2804)
+shape = SubResource("RectangleShape2D_xvxdg")
+
 [connection signal="complete_death" from="." to="Player" method="_on_level_10_complete_death"]
 [connection signal="level1_buttonrelease" from="." to="LevelEndDoor" method="_on_level_10_level_1_buttonrelease"]
 [connection signal="level1_complete" from="." to="LevelEndDoor" method="_on_level_10_level_1_complete"]
@@ -814,3 +947,6 @@ layer_0/tile_data = PackedInt32Array(121897327, 131072, 1, 121897343, 131072, 1,
 [connection signal="timeout" from="Water/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="SecretPassageCover1" to="SecretPassageCover1" method="_on_body_entered"]
 [connection signal="body_entered" from="SecretPassageCover2" to="SecretPassageCover2" method="_on_body_entered"]
+[connection signal="body_entered" from="JumpPad7" to="Player" method="_on_jump_pad_body_entered"]
+[connection signal="body_entered" from="Moving/JumpPad8" to="Player" method="_on_jump_pad_body_entered"]
+[connection signal="body_entered" from="Teleporter" to="." method="_on_teleporter_body_entered_lvl10"]

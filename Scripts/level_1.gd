@@ -82,3 +82,12 @@ func _on_player_call_gameoverscreen():
 	#gameover_instance.set_position(Vector2(0,0))
 	#call_deferred("add_child",gameover_instance)
 	pass
+
+
+func _on_teleporter_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_teleporter_body_entered_lvl10(body):
+	var x_pos = body.position.x
+	body.set_position(Vector2(810,2275))

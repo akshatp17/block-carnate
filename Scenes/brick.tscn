@@ -5,8 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://bhxurb0u0kvs5" path="res://Assets/Audio/SFX/block appear.mp3" id="3_rf7uw"]
 
 [node name="Brick" type="CharacterBody2D"]
-collision_layer = 43
-collision_mask = 43
+collision_layer = 171
+collision_mask = 171
 script = ExtResource("1_byjby")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
