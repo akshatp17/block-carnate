@@ -9,6 +9,8 @@ signal call_gameoverscreen
 @onready var timer
 @onready var jump_sfx = $Jump
 @onready var death_sfx = $Death
+@onready var counter = $Counter
+
 
 const SPEED = 200.0
 
@@ -37,6 +39,7 @@ func _ready():
 	if current_level in [3,4,5,6,7,8,9,10]:
 		timer = $"../Water/Timer"
 		timer.set_wait_time(wait_time)
+
 
 func _physics_process(delta):
 	
