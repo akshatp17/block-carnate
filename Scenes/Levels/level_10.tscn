@@ -267,6 +267,7 @@ limit_top = 0
 limit_right = 1100
 limit_bottom = 4450
 editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="Buttons" parent="." instance=ExtResource("11_worgu")]
 position = Vector2(905, 617)
@@ -698,14 +699,14 @@ script = ExtResource("14_jtxyk")
 offset_left = -49.0
 offset_top = 300.0
 offset_right = 95.0
-offset_bottom = 687.0
+offset_bottom = 660.0
 color = Color(0.246094, 0.21875, 0.316406, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="SecretPassageCover1"]
 offset_left = 95.0
 offset_top = 542.0
-offset_right = 1059.0
-offset_bottom = 732.0
+offset_right = 978.0
+offset_bottom = 661.0
 color = Color(0.246094, 0.21875, 0.316406, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SecretPassageCover1"]

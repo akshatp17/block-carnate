@@ -16,6 +16,10 @@ run/main_scene="res://Scenes/home.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GloabScene="*res://Scenes/gloab_scene.tscn"
+
 [display]
 
 window/size/viewport_height=640
