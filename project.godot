@@ -14,7 +14,7 @@ config/name="Blockcarnate"
 config/tags=PackedStringArray("infamix")
 run/main_scene="res://Scenes/home.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [autoload]
 
