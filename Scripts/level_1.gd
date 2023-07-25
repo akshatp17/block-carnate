@@ -16,7 +16,7 @@ var brick_total = 0
 var brick_left = 0
 
 var button_list = [1,1,1,1,2,1,3,3,3,3]
-var brick_list = [5,7,7,4,3,3,5,4,5,10]
+var brick_list = [5,6,5,4,3,3,5,4,5,6]
 
 var release_lock = false
 

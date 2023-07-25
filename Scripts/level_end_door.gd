@@ -37,9 +37,9 @@ func _on_body_entered_level_end(body):
 	if not lock:
 		if body.name == "Player":
 			if get_tree().get_current_scene().get_name() != "Level_10":
-				get_tree().change_scene_to_file("res://Scenes/Levels/level_" + str ( ( get_tree().get_current_scene().get_name() ).to_int() + 1 ) + ".tscn")
+				SceneTransition.change_scene_to_file("res://Scenes/Levels/level_" + str ( ( get_tree().get_current_scene().get_name() ).to_int() + 1 ) + ".tscn")
 			else:
-				get_tree().change_scene_to_file("res://Scenes/finish.tscn")
+				SceneTransition.change_scene_to_file("res://Scenes/finish.tscn")
 
 
 func _on_level_1_level_1_complete():

@@ -362,6 +362,10 @@ texture = ExtResource("14_3gtae")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FakeDoor"]
 polygon = PackedVector2Array(430, 537, 476, 537, 476, 489, 468, 481, 439, 481, 430, 490)
 
+[node name="FakeDoorExit" type="Sprite2D" parent="."]
+position = Vector2(630, 125)
+texture = ExtResource("14_3gtae")
+
 [node name="Player" parent="." instance=ExtResource("5_0qqjg")]
 position = Vector2(201, 460)
 

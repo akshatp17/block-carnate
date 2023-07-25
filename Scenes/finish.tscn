@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://boh0qfwf0cmip"]
+[gd_scene load_steps=10 format=3 uid="uid://boh0qfwf0cmip"]
 
 [ext_resource type="Script" path="res://Scripts/finish.gd" id="1_1epjq"]
 [ext_resource type="TileSet" uid="uid://b8twcct2lofvj" path="res://Assets/TileSets/tileset.tres" id="1_1lyrx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://sexa5art62o1" path="res://Assets/UI/Block.png" id="3_n5o8m"]
 [ext_resource type="Texture2D" uid="uid://br2lfwcp5kbal" path="res://Assets/UI/Carnate.png" id="4_aixgu"]
 [ext_resource type="SpriteFrames" uid="uid://dj21mhr345s68" path="res://Assets/Character/Brick/brick.tres" id="5_dfnkw"]
+[ext_resource type="AudioStream" uid="uid://boqrelt2qj0mg" path="res://Assets/Audio/victory.wav" id="7_6klk2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_boffi"]
 bg_color = Color(0.164706, 0.164706, 0.164706, 0.215686)
@@ -140,5 +141,9 @@ offset_top = 101.0
 offset_right = 807.0
 offset_bottom = 108.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jlt0r")
+
+[node name="victory_bg" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_6klk2")
+volume_db = -3.0
 
 [connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

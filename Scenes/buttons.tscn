@@ -28,6 +28,7 @@ polygon = PackedVector2Array(-16, 16, 16, 16, 16, 12, 13, 9, -13, 9, -16, 12)
 [node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_2nnes")
 volume_db = -3.0
+max_distance = 20000.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

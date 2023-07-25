@@ -1,9 +1,10 @@
 extends Control
 
+@onready var victory_bg = $victory_bg
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	victory_bg.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -12,4 +13,4 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/home.tscn")
+	SceneTransition.change_scene_to_file("res://Scenes/home.tscn")

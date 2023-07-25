@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxwk65wpcujoj"]
+
+[ext_resource type="AudioStream" uid="uid://blote8gej25ap" path="res://Assets/Audio/GAME BG.mp3" id="1_p253l"]
+[ext_resource type="Script" path="res://Scripts/music.gd" id="1_xo8k0"]
+[ext_resource type="AudioStream" uid="uid://b4jmlxki8gevg" path="res://Assets/Audio/MENU.mp3" id="2_auvph"]
+
+[node name="Music" type="Node2D"]
+script = ExtResource("1_xo8k0")
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_p253l")
+volume_db = -10.0
+max_distance = 20000.0
+
+[node name="Menu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_auvph")
+volume_db = -5.0

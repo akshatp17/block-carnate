@@ -19,6 +19,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 GloabScene="*res://Scenes/gloab_scene.tscn"
+Transition="*res://Scenes/transition.tscn"
+SceneTransition="*res://Scenes/Autoloads/scene_transition.tscn"
+Music="*res://Scenes/Autoloads/music.tscn"
 
 [display]
 

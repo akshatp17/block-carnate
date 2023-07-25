@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnspeis4mne1h"]
+[gd_scene load_steps=10 format=3 uid="uid://cnspeis4mne1h"]
 
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_p7xux"]
 [ext_resource type="TileSet" uid="uid://b8twcct2lofvj" path="res://Assets/TileSets/tileset.tres" id="2_2v4la"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://sexa5art62o1" path="res://Assets/UI/Block.png" id="4_ypm0v"]
 [ext_resource type="Texture2D" uid="uid://br2lfwcp5kbal" path="res://Assets/UI/Carnate.png" id="5_0rqgm"]
 [ext_resource type="SpriteFrames" uid="uid://dj21mhr345s68" path="res://Assets/Character/Brick/brick.tres" id="6_wghr5"]
+[ext_resource type="AudioStream" uid="uid://dq2hpgl1a3hii" path="res://Assets/Audio/SFX/Sad Violin 8 bit.mp3" id="7_5iprb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hdhy"]
 bg_color = Color(0.164706, 0.164706, 0.164706, 0.215686)
@@ -160,6 +161,10 @@ offset_top = 101.0
 offset_right = 807.0
 offset_bottom = 108.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_i4pp6")
+
+[node name="gameover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_5iprb")
+volume_db = 7.0
 
 [connection signal="pressed" from="Panel/TryAgainButton" to="." method="_on_try_again_button_pressed"]
 [connection signal="pressed" from="Panel/ReturnButton" to="." method="_on_return_button_pressed"]

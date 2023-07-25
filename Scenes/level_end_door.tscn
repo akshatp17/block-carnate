@@ -85,8 +85,10 @@ libraries = {
 [node name="open" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_0trqy")
 volume_db = 3.0
+max_distance = 20000.0
 
 [node name="close" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_8x8ty")
+max_distance = 20000.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered_level_end"]

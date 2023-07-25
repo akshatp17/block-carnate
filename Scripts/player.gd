@@ -63,7 +63,7 @@ func _physics_process(delta):
 		if not animsprite_2d.is_playing():
 			emit_signal("call_gameoverscreen")
 
-			get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+			SceneTransition.change_scene_to_file("res://Scenes/game_over.tscn")
 			queue_free()
 	
 	#Complete loop of movement, it stops when the player dies completly
@@ -172,6 +172,7 @@ func _on_timer_timeout():
 	if jump_nerf:
 		movement = false
 		timer.stop()
+		label.set_visible(false)
 		animsprite_2d.play("dead")
 		death_sfx.play()
 		complete_death = true
